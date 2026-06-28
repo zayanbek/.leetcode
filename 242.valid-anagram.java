@@ -8,8 +8,7 @@
 class Solution {
     public boolean isAnagram(String s, String t) {
 
-        int[] sCount = new int[26];
-        int[] tCount = new int[26];
+        int[] count = new int[26];
 
         // Check if lengths don't match
         if (s.length() != t.length()) {
@@ -17,15 +16,17 @@ class Solution {
         }
 
         // Count how many of each char
-        for (int i = 0; i < s.length(); i++)
-            sCount[s.charAt(i) - 'a']++;
+        for (int i = 0; i < s.length(); i++) {
+            count[s.charAt(i) - 'a']++;
+        }
 
-        for (int i = 0; i < t.length(); i++)
-            tCount[t.charAt(i) - 'a']++;
+        for (int i = 0; i < t.length(); i++) {
+            count[t.charAt(i) - 'a']--;
+        }
 
         // Compare character counts
         for (int i = 0; i < 26; i++) {
-            if (sCount[i] != tCount[i]) {
+            if (count[i] != 0) {
                 return false;
             }
         }
