@@ -14,20 +14,21 @@ class Solution(object):
         
         l = 1
         r = x
+        res = 0
         
-        while l < r:
+        while l <= r:
             mid = (l+r)//2
-            
             sq = mid * mid
-            
-            if sq == x:
-                return mid
             
             if sq > x:
                 r = mid - 1
-                
             elif sq < x:
                 l = mid + 1
+                res = mid
+            else:
+                return mid
+                
+        return res
     
 
 # @lc code=end
