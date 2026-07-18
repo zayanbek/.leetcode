@@ -14,13 +14,14 @@ class Solution(object):
         :type nums: List[int]
         :rtype: bool
         """
-        map = Counter(nums)
-        
-        for n in map.values():
-            if n>=2:
+        map = set()
+        for n in nums:
+            if n in map:
                 return True
-            
-        return False
+            else:
+                map.add(n)
+        
+        return false
         
 # @lc code=end
 
