@@ -14,14 +14,7 @@ class Solution(object):
         :type nums: List[int]
         :rtype: bool
         """
-        map = set()
-        for n in nums:
-            if n in map:
-                return True
-            else:
-                map.add(n)
-        
-        return false
+        return len(nums) != len(set(nums))
         
 # @lc code=end
 
