@@ -14,21 +14,16 @@ class Solution(object):
         """
         
         
-        width = len(matrix[0])
-        height = len(matrix)
+        width, height = len(matrix[0]), len(matrix)
         
-        pos = lambda row, col: row * width + col
-        index = lambda pos: (int(floor(pos)/width), pos % width)
-        
-        left = pos(0, 0) # = 0
-        right = pos(height - 1, width - 1)
+        left = 0
+        right = (height - 1) * (width) + (width - 1)
         
         while left <= right:
             
             mid = (left + right) // 2
-            
-            i = index(mid)
-            val = matrix[i[0]][i[1]]
+                        
+            val = matrix[int(float(mid)/width)][mid % width]  
             
             if val == target:
                 return True
@@ -40,7 +35,6 @@ class Solution(object):
                 right = mid - 1
             
         return False
-            
-             
+                 
 # @lc code=end
 
