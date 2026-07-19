@@ -14,16 +14,15 @@ class Solution(object):
         """
         
         
-        width, height = len(matrix[0]), len(matrix)
+        w, h = len(matrix[0]), len(matrix)
         
-        left = 0
-        right = (height - 1) * (width) + (width - 1)
+        left, right = 0, w * h - 1
         
         while left <= right:
             
             mid = (left + right) // 2
                         
-            val = matrix[int(float(mid)/width)][mid % width]  
+            val = matrix[int(float(mid)/w)][mid % w]  
             
             if val == target:
                 return True
