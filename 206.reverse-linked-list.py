@@ -21,10 +21,11 @@ class Solution(object):
         curr = head
 
         while curr:
-            temp = curr.next
+            a = curr
+            b = curr.next
             curr.next = prev
-            prev = curr
-            curr = temp
+            prev = a
+            curr = b
 
         return prev
         
