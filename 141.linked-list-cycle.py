@@ -5,6 +5,7 @@
 #
 
 # @lc code=start
+
 # Definition for singly-linked list.
 # class ListNode(object):
 #     def __init__(self, x):
@@ -28,8 +29,6 @@ class Solution(object):
                 return True
         
         return False
-            
-            
-    
+             
 # @lc code=end
 
