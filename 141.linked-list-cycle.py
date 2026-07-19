@@ -18,18 +18,18 @@ class Solution(object):
         :rtype: bool
         """
         
-        seen = set()
+        ptr1 = ptr2 = head
         
-        while head:
+        while ptr2 and ptr2.next:
+            ptr1 = ptr1.next
+            ptr2 = ptr2.next.next
             
-            if head in seen:
+            if ptr1 == ptr2:
                 return True
-            else:
-                seen.add(head)
-            
-            head = head.next
-
+        
         return False
+            
+            
     
 # @lc code=end
 
