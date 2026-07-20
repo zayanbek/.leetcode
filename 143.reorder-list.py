@@ -10,37 +10,47 @@
 #     def __init__(self, val=0, next=None):
 #         self.val = val
 #         self.next = next
+
 class Solution(object):
+    
+    def reorder(self, head, length):
+        if length == 0:
+            return None
+
+        if length == 1:
+            tail = head.next
+            head.next = None
+            return tail
+
+        if length == 2:
+            tail = head.next.next
+            head.next.next = None
+            return tail
+
+        # recurse on the middle portion
+        tail = self.reorder(head.next, length - 2)
+
+        sub_head = head.next
+        next_tail = tail.next
+
+        head.next = tail
+        tail.next = sub_head
+
+        return next_tail
+    
     def reorderList(self, head):
         """
         :type head: Optional[ListNode]
         :rtype: None Do not return anything, modify head in-place instead.
         """
         
-        ptr = head
-        length = 0
-        while ptr:
-            ptr.next
-            length += 1
-            
-        dummy = curr = head
+        node = head
+        count = 0
+        while node:
+            count += 1
+            node = node.next
         
-        next = head.next
-        
-        for i in range(1):
-            count = 0
-            ptr = curr
-            for i in range(length - count - 1):
-                ptr = ptr.next
-                
-            curr.next = ptr
-            ptr.next = next
-            curr = next
-            
-        return dummy
-
-
-# [2,4,6,8,10]
+        self.reorder(head, count)
         
 # @lc code=end
 
