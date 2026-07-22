@@ -10,30 +10,33 @@ import java.util.Stack;
 
 class MinStack {
 
-    Stack<Integer> s;
-    int min;
+    Stack<Integer> stack, minStack;
 
     public MinStack() {
-        s = new Stack<Integer>();
-        min = Integer.MAX_VALUE;
+        stack = new Stack<Integer>();
+        minStack = new Stack<Integer>();
     }
     
     public void push(int value) {
-
-        min = Math.min(min, value);
-        s.push(value);
+        stack.push(value);
+        if (minStack.isEmpty() || value <= minStack.peek()) {
+            minStack.push(value);
+        }
     }
     
     public void pop() {
-        s.pop();
+        int top = stack.pop();
+        if (top == minStack.peek()) {
+            minStack.pop();
+        }
     }
     
     public int top() {
-        return s.peek();
+        return stack.peek();
     }
     
     public int getMin() {
-        return min;
+        return minStack.peek();
     }
 }
 
