@@ -9,15 +9,14 @@ class Solution {
     public int findDuplicate(int[] nums) {
         int val = -1;
 
-        for(int i = 0; i < nums.length; i++) {
-            val = Math.abs(nums[i]);
+        for(int n : nums) {
+            val = Math.abs(n);
 
             if (nums[val] >= 1) {
                 nums[val] *= -1;
             } else {
                 return val;
             }
-
         }
 
         return -1;
