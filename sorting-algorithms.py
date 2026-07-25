@@ -2,10 +2,11 @@
 from typing import List
 import random
 
-# O(n) -> O(n^2)
+# time: O(n) -> O(n^2)
+# spac: O(1)
 # stable
 def bubble(a: List[int]) -> List[int]:
-    n = len(nums)
+    n = len(a)
     
     for i in range(n - 1):
         swapped = False
@@ -17,30 +18,47 @@ def bubble(a: List[int]) -> List[int]:
         if not swapped:
             break
     
-    return nums
+    return a
 
-#
-#
-def selection(nums: List[int]) -> List[int]:
-    
-    
-    
+# O(n^2) -> O(n^2)
+# O(1)
+# unstable
+def selection(a: List[int]) -> List[int]:
     return [1]
 
+#
+#
+#
 def insertion(nums: List[int]) -> List[int]:
     return [1]
 
-def merge(nums: List[int]) -> List[int]:
+#
+#
+#
+def merge(nums: List[int]) -> List[int]: 
     return [1]
 
-def quick(nums: List[int]) -> List[int]:
+# time:
+# spac:
+# unstable
+def iter_quick(nums: List[int]) -> List[int]:
+    
+    
+    
+    
+    
     return [1]
 
 
 
-nums = [random.randint(1, 100) for _ in range(10)]
 
-sorted = bubble(nums)
-nums.sort()
 
-print(sorted == nums)
+
+
+
+
+
+nums = [5, 4, 90, 4, 13, 67, 100, 67]
+
+bubble(nums)
+print(nums)
