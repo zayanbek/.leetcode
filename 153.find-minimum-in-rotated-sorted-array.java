@@ -7,11 +7,21 @@
 // @lc code=start
 class Solution {
     public int findMin(int[] nums) {
-        int min = Integer.MAX_VALUE;
+        int left = 0,  right = nums.length - 1;
 
-        for(int n : nums) min = Math.min(min, n);
+        while (left < right ) {
 
-        return min;
+            int mid = (left + right) / 2;
+
+            if(nums[mid] < nums[right]) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+
+        }
+
+        return nums[left];
     }
 }
 // @lc code=end
