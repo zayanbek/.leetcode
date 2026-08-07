@@ -23,24 +23,27 @@
 class Solution {
     public List<Integer> rightSideView(TreeNode root) {
         ArrayList<Integer> result = new ArrayList<>();
-        
+
         Queue<TreeNode> q = new LinkedList<>();
-        q.add(root);
+
+        q.offer(root);
 
         while (!q.isEmpty()) {
-            List<Integer> level = new ArrayList<>();
-
+            TreeNode right = null;
+            
             for (int i = q.size(); i > 0; i--) {
+
                 TreeNode node = q.poll();
+
                 if (node != null) {
-                    level.add(node.val);
-                    q.add(node.left);
-                    q.add(node.right);
+                    right = node;
+                    q.offer(node.left);
+                    q.offer(node.right);
                 }
             }
-            if (level.size() > 0) {
-                result.add(level.get(level.size() - 1));
-            }
+            if (right != null) result.add(right.val);
+            
+
         }
         return result;
     }
