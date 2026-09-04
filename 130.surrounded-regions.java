@@ -15,23 +15,16 @@ class Solution {
 
         // top and bottom
         for (int i = 0; i < board[0].length; i++) {
-            if (board[0][i] == 'O') {
-                dfs(0, i, board);
-            }
-            if (board[ROWS - 1][i] == 'O') {
-                dfs(ROWS - 1, i, board);
-            }
+            if (board[0][i] == 'O') dfs(0, i, board);
+            if (board[ROWS - 1][i] == 'O') dfs(ROWS - 1, i, board);
+            
         } 
         
         // left and right
         for (int j = 0; j < board.length; j++) {
-            if (board[j][0] == 'O') {
-                dfs(j, 0, board);
-            }
-
-            if (board[j][COLS - 1] == 'O') {
-                dfs(j, COLS - 1, board);
-            }
+            if (board[j][0] == 'O') dfs(j, 0, board);
+            if (board[j][COLS - 1] == 'O') dfs(j, COLS - 1, board);
+            
         }
 
         for (int row = 0; row < ROWS; row++) {
