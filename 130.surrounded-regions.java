@@ -20,6 +20,7 @@ class Solution {
             
         } 
         
+        
         // left and right
         for (int j = 0; j < board.length; j++) {
             if (board[j][0] == 'O') dfs(j, 0, board);
