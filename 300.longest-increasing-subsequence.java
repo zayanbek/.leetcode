@@ -6,26 +6,35 @@
 
 // @lc code=start
 class Solution {
+    int[] nums;
+    int[] memo;
+    int len;
     public int lengthOfLIS(int[] nums) {
-        int len = nums.length;
-        int[] table = new int[len];
-        table[len - 1] = 1;
+        this.nums = nums;
+        len = nums.length;
+        memo = new int[len];
+        Arrays.fill(memo, -1);
 
-        for (int i = len - 2; i >= 0; i--) {
-            int max = Integer.MIN_VALUE;
-            
-            for (int j = i + 1; j < len; j++) {
-                if (nums[j] > nums[i]) {
-                    max = Math.max(max, table[j]);
-                }
+        int max = 1;
+        for(int i = 0; i < len; i++) {
+            max = Math.max(max, dfs(i));
+        }
+        return max;
+    }
 
-                table[i] = max + 1;
+    private int dfs(int i) {
+        if (memo[i] != -1) return memo[i];
+
+        int max = 1;
+        for (int j = i + 1; j < len; j++) {
+            if (nums[j] > nums[i]) {
+                max = Math.max(max, 1 + dfs(j));
             }
         }
-        
-        int max = table[0];
-        for (int n : table) max = Math.max(max, n);
+
+        memo[i] = max;
         return max;
+        
     }
 } 
 
